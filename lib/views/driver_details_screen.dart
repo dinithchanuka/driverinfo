@@ -1,6 +1,10 @@
 import 'package:driverinfo/core/validation_utils.dart';
+import 'package:driverinfo/viewmodels/driver_viewmodel.dart';
+import 'package:driverinfo/widgets/custom_button.dart';
 import 'package:driverinfo/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class DriverDetailsScreen extends StatelessWidget {
   DriverDetailsScreen({super.key});
@@ -13,6 +17,8 @@ class DriverDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final driverViewModel = Provider.of<DriverViewModel>(context);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Driver Details')),
       body: Padding(
@@ -74,14 +80,20 @@ class DriverDetailsScreen extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
+              CustomButton(
+                text: 'Next',
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
+                    driverViewModel.updateDriverDetails(
+                      _nameController.text,
+                      _mobileController.text,
+                      _emailController.text,
+                      _nicController.text,
+                    );
+                    context.go('/license');
                   }
                 },
-                child: const Text('Next'),
-              )
+              ),
             ],
           ),
         ),

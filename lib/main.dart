@@ -1,8 +1,15 @@
 import 'package:driverinfo/routes/app_routes.dart';
+import 'package:driverinfo/viewmodels/driver_viewmodel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => DriverViewModel()),
+    ],
+    child: MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
