@@ -2,6 +2,7 @@ import 'package:driverinfo/viewmodels/license_viewmodel.dart';
 import 'package:driverinfo/widgets/custom_button.dart';
 import 'package:driverinfo/widgets/image_picker_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class LicenseVerificationScreen extends StatelessWidget {
@@ -49,7 +50,7 @@ class LicenseVerificationScreen extends StatelessWidget {
                 text: 'Next',
                 onPressed: () {
                   if (licenseViewModel.validate()) {
-
+                    context.go('/vehicle');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Please upload all required images')),

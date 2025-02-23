@@ -1,5 +1,6 @@
 import 'package:driverinfo/views/driver_details_screen.dart';
 import 'package:driverinfo/views/license_verification_screen.dart';
+import 'package:driverinfo/views/vehicle_details_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
@@ -11,6 +12,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/license',
       builder: (context, state) => LicenseVerificationScreen(),
+    ),
+    GoRoute(
+      path: '/vehicle',
+      builder: (context, state) => VehicleDetailsScreen(),
     ),
   ],
 );

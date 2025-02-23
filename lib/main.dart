@@ -1,6 +1,7 @@
 import 'package:driverinfo/routes/app_routes.dart';
 import 'package:driverinfo/viewmodels/driver_viewmodel.dart';
 import 'package:driverinfo/viewmodels/license_viewmodel.dart';
+import 'package:driverinfo/viewmodels/vehicle_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ void main() {
     providers: [
       ChangeNotifierProvider(create: (_) => DriverViewModel()),
       ChangeNotifierProvider(create: (_) => LicenseViewModel()),
+      ChangeNotifierProvider(create: (_) => VehicleViewModel()),
     ],
     child: MyApp(),
   ),);
