@@ -8,11 +8,13 @@ class ImagePickerWidget extends StatelessWidget {
   final String label;
   final Function(File) onImagePicked;
   final bool isRequired;
+  final File? selectedFile;
 
   ImagePickerWidget({
     required this.label,
     required this.onImagePicked,
     this.isRequired = true,
+    this.selectedFile
   });
 
   Future<void> _pickImage(BuildContext context) async {
@@ -43,6 +45,18 @@ class ImagePickerWidget extends StatelessWidget {
           onPressed: () => _pickImage(context),
           child: Text('Upload Image'),
         ),
+        if (selectedFile != null) ...[
+          SizedBox(height: 8),
+          Text(
+            'Selected File: ${selectedFile!.path.split('/').last}', // Show file name
+            style: TextStyle(fontSize: 12),
+          ),
+          SizedBox(height: 4),
+          Text(
+            'File Size: ${(selectedFile!.lengthSync() / 1024).toStringAsFixed(2)} KB', // Show file size in KB
+            style: TextStyle(fontSize: 12),
+          ),
+        ],
       ],
     );
   }

@@ -23,22 +23,26 @@ class LicenseVerificationScreen extends StatelessWidget {
               ImagePickerWidget(
                 label: 'Driving License Front',
                 onImagePicked: (file) => licenseViewModel.setLicenseFront(file),
+                selectedFile: licenseViewModel.licenseFront,
               ),
               const SizedBox(height: 16),
               ImagePickerWidget(
                 label: 'Driving License Back',
                 onImagePicked: (file) => licenseViewModel.setLicenseBack(file),
+                selectedFile: licenseViewModel.licenseBack,
               ),
               const SizedBox(height: 16),
               ImagePickerWidget(
                 label: 'Driver Image',
                 onImagePicked: (file) => licenseViewModel.setDriverImage(file),
+                selectedFile: licenseViewModel.driverImage,
               ),
               const SizedBox(height: 16),
               ImagePickerWidget(
                 label: 'Additional Documents (Optional)',
                 onImagePicked: (file) => licenseViewModel.setAdditionalDocuments(file),
                 isRequired: false,
+                  selectedFile: licenseViewModel.additionalDocuments,
               ),
               const SizedBox(height: 16),
               CustomButton(
