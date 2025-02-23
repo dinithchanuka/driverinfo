@@ -3,6 +3,7 @@ import 'package:driverinfo/viewmodels/bank_viewmodel.dart';
 import 'package:driverinfo/widgets/custom_button.dart';
 import 'package:driverinfo/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class BankDetailsScreen extends StatelessWidget {
@@ -82,8 +83,7 @@ class BankDetailsScreen extends StatelessWidget {
                       _branchController.text,
                       _accountHolderNameController.text,
                     );
-
-
+                    context.go('/success');
                   }
                 },
               ),

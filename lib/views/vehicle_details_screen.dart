@@ -2,6 +2,7 @@ import 'package:driverinfo/viewmodels/vehicle_viewmodel.dart';
 import 'package:driverinfo/widgets/custom_button.dart';
 import 'package:driverinfo/widgets/image_picker_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class VehicleDetailsScreen extends StatelessWidget {
@@ -54,7 +55,7 @@ class VehicleDetailsScreen extends StatelessWidget {
                 text: 'Next',
                 onPressed: () {
                   if (vehicleViewModel.validate()) {
-
+                    context.go('/bank');
                   } else {
                     // Show error message if validation fails
                     ScaffoldMessenger.of(context).showSnackBar(
