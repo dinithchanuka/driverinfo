@@ -74,4 +74,10 @@ class ValidationUtils {
 
     return null; // No error
   }
+
+  static String? validateAccountNumber(String? value) {
+    if (value == null || value.isEmpty) return 'Account number is required';
+    if (value.length < 10) return 'Account number must be at least 10 digits';
+    return null;
+  }
 }

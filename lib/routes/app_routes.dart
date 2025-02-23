@@ -1,3 +1,4 @@
+import 'package:driverinfo/views/bank_details_screen.dart';
 import 'package:driverinfo/views/driver_details_screen.dart';
 import 'package:driverinfo/views/license_verification_screen.dart';
 import 'package:driverinfo/views/vehicle_details_screen.dart';
@@ -16,6 +17,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/vehicle',
       builder: (context, state) => VehicleDetailsScreen(),
+    ),
+    GoRoute(
+      path: '/bank',
+      builder: (context, state) => BankDetailsScreen(),
     ),
   ],
 );

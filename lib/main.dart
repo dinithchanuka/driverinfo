@@ -1,4 +1,5 @@
 import 'package:driverinfo/routes/app_routes.dart';
+import 'package:driverinfo/viewmodels/bank_viewmodel.dart';
 import 'package:driverinfo/viewmodels/driver_viewmodel.dart';
 import 'package:driverinfo/viewmodels/license_viewmodel.dart';
 import 'package:driverinfo/viewmodels/vehicle_viewmodel.dart';
@@ -11,6 +12,7 @@ void main() {
       ChangeNotifierProvider(create: (_) => DriverViewModel()),
       ChangeNotifierProvider(create: (_) => LicenseViewModel()),
       ChangeNotifierProvider(create: (_) => VehicleViewModel()),
+      ChangeNotifierProvider(create: (_) => BankViewModel()),
     ],
     child: MyApp(),
   ),);

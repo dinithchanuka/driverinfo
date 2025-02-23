@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:driverinfo/core/validation_utils.dart';
 import 'package:flutter/material.dart';
 
 class LicenseViewModel with ChangeNotifier {
