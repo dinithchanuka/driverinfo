@@ -54,7 +54,6 @@ class DriverDetailsScreen extends StatelessWidget {
                 labelText: 'Email',
                 hintText: 'Enter your email address',
                 controller: _emailController,
-                keyboardType: TextInputType.phone,
                 validator: (value) {
                   final requiredError =
                       ValidationUtils.validateRequired(value, 'Email');
@@ -69,7 +68,6 @@ class DriverDetailsScreen extends StatelessWidget {
                 labelText: 'NIC',
                 hintText: 'Enter your NIC number',
                 controller: _nicController,
-                keyboardType: TextInputType.phone,
                 validator: (value) {
                   final requiredError =
                       ValidationUtils.validateRequired(value, 'NIC');

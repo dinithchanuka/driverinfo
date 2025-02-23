@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:mime/mime.dart';
+
 class ValidationUtils {
   // Validate if a field is empty
   static String? validateRequired(String? value, String fieldName) {
@@ -38,5 +42,36 @@ class ValidationUtils {
       return 'Invalid NIC format';
     }
     return null;
+  }
+
+  // Validate image type (JPEG or PNG)
+  static String? validateImageType(File file) {
+    final allowedTypes = ['image/jpeg', 'image/png'];
+    final mimeType = lookupMimeType(file.path);
+
+    if (mimeType == null || !allowedTypes.contains(mimeType)) {
+      return 'Only JPEG and PNG images are allowed';
+    }
+    return null;
+  }
+
+  // Validate image size (max 5MB)
+  static String? validateImageSize(File file) {
+    const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+    if (file.lengthSync() > maxSizeInBytes) {
+      return 'Image size must be less than 5MB';
+    }
+    return null;
+  }
+
+  // Combined validation for image type and size
+  static String? validateImage(File file) {
+    final typeError = validateImageType(file);
+    if (typeError != null) return typeError;
+
+    final sizeError = validateImageSize(file);
+    if (sizeError != null) return sizeError;
+
+    return null; // No error
   }
 }

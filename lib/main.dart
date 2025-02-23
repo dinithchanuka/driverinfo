@@ -1,5 +1,6 @@
 import 'package:driverinfo/routes/app_routes.dart';
 import 'package:driverinfo/viewmodels/driver_viewmodel.dart';
+import 'package:driverinfo/viewmodels/license_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -7,6 +8,7 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => DriverViewModel()),
+      ChangeNotifierProvider(create: (_) => LicenseViewModel()),
     ],
     child: MyApp(),
   ),);
